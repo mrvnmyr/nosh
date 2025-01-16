@@ -32,6 +32,7 @@ func version() {
 }
 
 func run(scriptPath string, src interface{}) {
+
 	// Builtins
 	predeclared := starlark.StringDict{
 		"args":     noshOs.Args,
