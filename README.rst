@@ -1,15 +1,17 @@
-# nosh
+nosh
+====
 
-[![CI](https://github.com/Rafflesiaceae/nosh/actions/workflows/ci.yml/badge.svg)](https://github.com/Rafflesiaceae/nosh/actions/workflows/ci.yml)
+|CI|
 
-Take `starlark`, take `go` and wrap them into a cross-plat shell of sorts.
+Take ``starlark``, take ``go`` and wrap them into a cross-plat shell of sorts.
 
-Motivation is to do basic shell tasks in `bazel` with something cross-plat, easy
-to provision via `bazel` and which tastes like `starlark`.
+Motivation is to do basic shell tasks in ``bazel`` with something cross-plat, easy to provision via ``bazel`` and which tastes like ``starlark``.
 
-See [./quicktest.nosh](./quicktest.nosh) for examples.
+See `./quicktest.nosh <./quicktest.nosh>`__ for examples.
 
-## Todo
+Todo
+----
+
 - [X] print / printf
 - [X] assert
 - [ ] regex
@@ -77,3 +79,7 @@ See [./quicktest.nosh](./quicktest.nosh) for examples.
 
 - [ ] net.ping
 - [ ] net.curl
+
+
+.. |CI| image:: https://github.com/Rafflesiaceae/nosh/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/Rafflesiaceae/nosh/actions/workflows/ci.yml
