@@ -1,9 +1,20 @@
 name: CI
-on: [push, pull_request, workflow_dispatch]
 
-jobs: # {{{
-  build-and-quicktest: # {{{
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:  # enable running manually
 
+# cancel previous unfinished/running jobs in each separate branch
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
     strategy:
       fail-fast: false
       matrix:
@@ -18,7 +29,8 @@ jobs: # {{{
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - uses: actions/setup-go@v5
         with:
@@ -29,5 +41,3 @@ jobs: # {{{
 
       - name: Run a quicktest
         run: ./nosh quicktest.nosh
-  # }}}
-# }}}
